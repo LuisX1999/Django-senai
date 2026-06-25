@@ -1,0 +1,57 @@
+{% extends 'MotorArtigos/base.html' %}
+{% load static %}
+
+    {% block content %}
+    <h1><center>O melhor site de Django, IA, Data Science do Brasil</center></h1>
+    <br>
+    <center><a href="{% url 'artigo' %}">CLIQUE AQUI</a></center>
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{% static 'img/chatgpt.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/django.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/groq.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/hugging.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/langflow.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/maritaca.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/mysql.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="{% static 'img/python.png' %}" class="d-block w-100 carousel-img" alt="">
+            </div>
+        </div>
+    
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+    
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <ul>
+        {% for autor in autores %}
+            <li>
+                <strong>ID do Autor:</strong> {{ autor.id }} <br>
+                <strong>Nome:</strong> {{autor.nome}} <br>
+                <strong>Biografia:</strong> {{ autor.biografia }} <br>
+                <strong>E-mail:</strong> {{ autor.email }}
+            </li>
+        <hr>
+        {% empty %}
+            <p>Nenhum autor encontrado</p>
+        {% endfor %}
+    </ul>
+    {% endblock %}
